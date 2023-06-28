@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="icu.yvling.qmusic.activities.MainActivity.Event" />
+
+        <variable
+            name="event"
+            type="Event" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+<!--        头部区域         -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:text="@{ event.getMusicName() }"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:text="@{ event.getArtistName() }"/>
+
+        </LinearLayout>
+
+
+<!--        中间区域         -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="550dp">
+
+            <ListView
+                android:id="@+id/musicListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:divider="@null"/>
+
+        </LinearLayout>
+
+
+
+<!--        底部区域         -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{ event.getCurrentPosition() }" />
+
+                <SeekBar
+                    android:id="@+id/seekBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:progressTint="#6750A4"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@{ event.getDuration() }" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:gravity="center">
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="30dp" />
+
+                <ImageButton
+                    android:id="@+id/previousMusicButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:scaleType="fitXY"
+                    android:background="@null"
+                    android:src="@drawable/keyboard_double_arrow_left_fill0_wght400_grad0_opsz48"
+                    app:tint="#424242" />
+
+                <ImageButton
+                    android:id="@+id/playAndPauseButton"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:scaleType="fitXY"
+                    android:background="@null"
+                    android:src="@drawable/baseline_play_circle_24"
+                    app:tint="#6750A4" />
+
+                <ImageButton
+                    android:id="@+id/nextMusicButton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:scaleType="fitXY"
+                    android:background="@null"
+                    android:src="@drawable/keyboard_double_arrow_right_fill0_wght400_grad0_opsz48"
+                    app:tint="#424242" />
+
+                <ImageView
+                    android:id="@+id/addMusicButton"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:padding="4dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@null"
+                    android:src="@drawable/baseline_search_24" />
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>
